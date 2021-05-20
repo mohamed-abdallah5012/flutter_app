@@ -1,24 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pojo/response.dart';
 
 class MovieDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(title: 'Movie Details'),
+      home: MyHomePage1(title: 'Movie Details'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+// ignore: must_be_immutable
+class MyHomePage1 extends StatefulWidget {
+
+
+  MyHomePage1({Key key, this.title}) : super(key: key);
   final String title;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage1> {
 
   @override
   Widget build(BuildContext context) {
+
+    final Movie x= ModalRoute.of(context).settings.arguments ;
+
+    print(x);
+
     return Scaffold(
       backgroundColor: Colors.deepPurple,
       appBar: AppBar(
@@ -26,6 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: GestureDetector(
           onTap: () {
             print("back is pressed");
+            Navigator.pop(context,"yes");
+
           },
           child: Icon(Icons.arrow_back),
         ),
@@ -36,11 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset("assets/img/1.jpg",width: double.infinity ,fit: BoxFit.fill),
+          Image.network("https://image.tmdb.org/t/p/w500"+x.backdropPath,width: double.infinity ,fit: BoxFit.fill),
           Padding(
               padding: EdgeInsets.fromLTRB(10, 15, 1, 5),
               child: Text(
-                "Star Wars:IV",
+                x.title,
                 style: TextStyle(color: Colors.white, fontSize: 30.0),
               )),
           Row(children: [
@@ -112,15 +123,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               )),
+
           Padding(
               padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
               child: Text(
-                "Star Wars: bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla Star "
-                    "Wars: bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla .",
+                x.overview,
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ))
-        ],
+              ),
+          )
+          ],
+
       ),
+
     );
   }
 }
