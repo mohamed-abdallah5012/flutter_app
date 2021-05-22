@@ -106,20 +106,42 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Scaffold(
             backgroundColor: Colors.deepPurple,
             appBar: AppBar(
-              backgroundColor: Colors.deepPurple,
-              leading: GestureDetector(
-                onTap: () {},
-                child: Icon(Icons.arrow_back),
-              ),
-              title: Text(widget.title),
-              centerTitle: false,
+              leading: Icon(Icons.home_filled),
+              title: Text("Now Playing"),
+              actions: <Widget>[
+                Consumer<MoviesModel>(builder: (ctx, model, __) {
+                  print("llllllllllllllllll->${model.favMovies.length}");
+                  return IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                    onPressed: () {
+                      print("want to navigate");
+                      Navigator.push(
+                          ctx,
+                          MaterialPageRoute(
+                              builder: (context) => Favourites()));
+                      //   model.getFavouritesMovies();
+                    },
+                  );
+                })
+              ],
+              backgroundColor: Colors.transparent,
               bottom: TabBar(
                 tabs: [
-                  Text("Popular"),
-                  Text("Upcoming"),
-                  Text("Playing"),
-                  Text("Top rating"),
-
+                  Tab(
+                    text: "Now Playing",
+                  ),
+                  Tab(
+                    text: "Popular ",
+                  ),
+                  Tab(
+                    text: "Top Rated",
+                  ),
+                  Tab(
+                    text: "Upcoming",
+                  ),
                 ],
               ),
             ),
