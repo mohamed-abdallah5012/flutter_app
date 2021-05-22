@@ -125,13 +125,13 @@ class _MyHomePageState extends State<MyHomePage1> {
               )),
 
           Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Text(
-                x.overview,
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ),
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            child: Text(
+              x.overview,
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
+            ),
           )
-          ],
+        ],
 
       ),
 
