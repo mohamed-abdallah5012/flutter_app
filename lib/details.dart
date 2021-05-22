@@ -47,7 +47,14 @@ class _MyHomePageState extends State<MyHomePage1> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.network("https://image.tmdb.org/t/p/w500"+x.backdropPath,width: double.infinity ,fit: BoxFit.fill),
+          Hero(
+            tag: x.backdropPath,
+            child: Image.network(
+                "https://image.tmdb.org/t/p/w500" + x.backdropPath,
+                width: double.infinity,
+                fit: BoxFit.fill),
+          )
+          ,
           Padding(
               padding: EdgeInsets.fromLTRB(10, 15, 1, 5),
               child: Text(
