@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/provider/movies_model.dart';
 import '../models/Movie.dart';
 import '../main.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_app/provider/movies_model.dart';
 import 'package:provider/provider.dart';
 
 class PopularScreen extends StatefulWidget {

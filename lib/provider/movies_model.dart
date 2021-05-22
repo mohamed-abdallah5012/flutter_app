@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_app/data/data_base.dart';
+import 'package:itilabs/data/data_base.dart';
 import '../models/Movie.dart';
 import '../models/APIResponse.dart';
 
 import 'package:dio/dio.dart';
+import 'package:itilabs/models/Movie.dart';
 
 class MoviesModel extends ChangeNotifier {
   List<Movie> _movies = [];

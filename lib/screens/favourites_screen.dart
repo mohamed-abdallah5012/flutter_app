@@ -29,6 +29,7 @@ class _FavouritesState extends State<Favourites> {
     return Consumer<MoviesModel>(builder: (_, moviesModel, __) {
       List<Movie> movies = moviesModel.favMovies;
       return Scaffold(
+        backgroundColor: Colors.deepPurple,
         body: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: movies.length,
